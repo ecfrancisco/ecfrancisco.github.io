@@ -51,7 +51,7 @@ $_SESSION['merchterm'] = $merchterm;
 
 
 
-function request($items_details, $total,$iva,$totalBaseIva,$totalBase0, $email, $primer_nombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
+function request($items, $total,$iva, $totalBase0, $email, $primer_nombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
 	$finger = urlencode($finger);
 	$i = 0;
 	$url = "https://test.oppwa.com/v1/checkouts";
@@ -114,11 +114,13 @@ function request($items_details, $total,$iva,$totalBaseIva,$totalBase0, $email, 
 
 $baseUrl = "https://pagostest.datafast.com.ec/df/payment.php";
 
-if(!is_float($totalBaseIva))
+if(!is_float($totalBaseIva)){
 	$totalBaseIva= number_format((float)$totalBaseIva, 2, '.', '');
+}
 
-if(!is_float($totalBase0))
+if(!is_float($totalBase0)){
 	$totalBase0 = number_format((float)$totalBase0, 2, '.', '');
+}
 
 $iva =  $totalBaseIva * 0.12;
 $iva =  round($iva,2);
@@ -173,7 +175,6 @@ $json = json_decode($responseData, true);
 		</div>
 		<div class="row">
 		<div class="col-md-12 text-center">
-		<!-- <img src="../imagenes/marcas.png"> -->
 		</div>
 	</div>
 	<p>Powered by <a href="http://www.datafast.com.ec/" target="_blank">Datafast</a></p>	
