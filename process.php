@@ -17,7 +17,7 @@ if (!file_exists($nombre_fichero)) {
 if (filesize($nombre_fichero) == 0){
   $vacio = false;
 }else{
-  $file = fopen($nombre_fichero, "r") or exit("Error abriendo fichero!");
+  $file = fopen($nombre_fichero, "r") || exit("Error abriendo fichero!");
   $linea = fgets($file);
   $terminal =  explode("_", $linea);
   $mid = trim($terminal[0]);
@@ -30,18 +30,6 @@ if (filesize($nombre_fichero) == 0){
 
 $merchantId=$mid;//Homologación 7100040113
 $terminalId=$tid;//BP para OTT
-
-/*
-$merchantId="5000004001";//SUPERMAXI
-$terminalId="L0100402";
-
-*/
-
-/*$merchantId="1000000505";
-$terminalId="PD100406";*/
-
-
-
 
 
 
@@ -56,12 +44,6 @@ $_SESSION['merchterm'] = $merchterm;
 }else{*/
 	$_SESSION['entityId'] = "8a8294175f113aad015f11652f2200a5";
 	$_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhjNzI4YzBkOTV8YmZxR3F3UTMyWA==";
-//}
-
-//$_SESSION['entityId']=$entity;
-//$_SESSION['autorizador']=$token;
-/*$_SESSION['userId']="8a8294185a65bf5e015a6c8b2f690d8b";
-$_SESSION['password']="RkjpyNNE8s";*/
 
 
 
@@ -69,10 +51,7 @@ $_SESSION['password']="RkjpyNNE8s";*/
 
 
 
-
-
-function request($items, $total,$iva,$totaTarifa12,$totalBase0,$email, $primer_nombre, $segundo_nombre, $apellido, $cedula, $trx,$ip_address, $finger,$merchterm,
-	$telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
+function request($items,$iva, $totaTarifa12, $totalBase0, $finger) {
 	$finger = urlencode($finger);
 	$i = 0;
 	$url = "https://test.oppwa.com/v1/checkouts";
@@ -104,13 +83,15 @@ function request($items, $total,$iva,$totaTarifa12,$totalBase0,$email, $primer_n
 		"&risk.parameters[USER_DATA2]=DATAFAST".
 		"&customParameters[SHOPPER_VERSIONDF]=2".
 		"&customParameters[".$merchterm."]=00810030070103910004012".$valueIva."05100817913101052012".$valueTotalBase0."053012".$valueTotalIva;
-		
+	
+	$itemCart = "&cart.items[";
+	
 	foreach ($items["cart"] as $c) {
 		
-		$data.= "&cart.items[".$i."].name=".$c["product_name"];
-		$data.= "&cart.items[".$i."].description="."Descripcion: ".$c["product_name"];
-		$data.= "&cart.items[".$i."].price=".$c["product_price"];
-		$data.= "&cart.items[".$i."].quantity=".$c["q"];		
+		$data.= $itemCart.$i."].name=".$c["product_name"];
+		$data.= $itemCart.$i."].description="."Descripcion: ".$c["product_name"];
+		$data.= $itemCart.$i."].price=".$c["product_price"];
+		$data.= $itemCart.$i."].quantity=".$c["q"];		
 		$i++;
 	}
 	
