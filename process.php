@@ -51,7 +51,7 @@ $_SESSION['merchterm'] = $merchterm;
 
 
 
-function request($items, $total, $iva, $totalBase0, $email, $primer_nombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
+/*function request($items, $total, $iva, $totalBase0, $email, $primer_nombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
 	$finger = urlencode($finger);
 	$i = 0;
 	$url = "https://test.oppwa.com/v1/checkouts";
@@ -110,7 +110,7 @@ function request($items, $total, $iva, $totalBase0, $email, $primer_nombre, $seg
 	}
 	curl_close($ch);
 	return $responseData;
-}
+}*/
 
 $baseUrl = "https://pagostest.datafast.com.ec/df/payment.php";
 
