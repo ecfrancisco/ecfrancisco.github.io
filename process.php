@@ -146,7 +146,7 @@ $json = json_decode($responseData, true);
 <script type='text/javascript' src="../bootstrap.min.js"></script>
 
 <body class="well">
-<script src="https://test.oppwa.com/v1/paymentWidgets.js"></script>
+<script src="https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=<?php echo $json['id'] ?> integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx></script>
 
 
 <div class="container">
