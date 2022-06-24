@@ -177,7 +177,7 @@ $json = json_decode($responseData, true);
 		<div class="col-md-12 text-center">
 		</div>
 	</div>
-	<p>Powered by <a href="http://www.datafast.com.ec/" target="_blank">Datafast</a></p>	
+	<p>Powered by <a href="http://www.datafast.com.ec/" target="_blank" rel=noopener>Datafast</a></p>	
 	</div>
 </div>
 </body>
