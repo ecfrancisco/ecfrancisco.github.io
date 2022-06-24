@@ -17,7 +17,7 @@ if (!file_exists($nombre_fichero)) {
 if (filesize($nombre_fichero) == 0){
   $vacio = false;
 }else{
-  $file = fopen($nombre_fichero, "r") || exit("Error abriendo fichero!");
+  $file = fopen($nombre_fichero, "r");
   $linea = fgets($file);
   $terminal =  explode("_", $linea);
   $mid = trim($terminal[0]);
@@ -51,7 +51,7 @@ $_SESSION['merchterm'] = $merchterm;
 
 
 
-function request($items,$iva, $totaTarifa12, $totalBase0, $finger) {
+function request($items_details, $total,$iva,$totalBaseIva,$totalBase0, $email, $primer_nombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
 	$finger = urlencode($finger);
 	$i = 0;
 	$url = "https://test.oppwa.com/v1/checkouts";
