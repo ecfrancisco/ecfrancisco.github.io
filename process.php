@@ -51,7 +51,7 @@ $_SESSION['merchterm'] = $merchterm;
 
 
 
-function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
+function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segundoNombre, $apellido,$cedula, $trx, $ipAddress, $finger,$merchterm, $telefono, $direccionCliente, $paisCliente, $direccionEntrega, $paisEntrega) {
 	$finger = urlencode($finger);
 	$i = 0;
 	$url = "https://test.oppwa.com/v1/checkouts";
@@ -66,19 +66,19 @@ function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segu
 		"&currency=USD".
 		"&paymentType=DB".
 		"&customer.givenName=".$primerNombre.
-		"&customer.middleName=".$segundo_nombre.
+		"&customer.middleName=".$segundoNombre.
 		"&customer.surname=".$apellido.
-		"&customer.ip=".$ip_address.
+		"&customer.ip=".$ipAddress.
 		"&customer.merchantCustomerId=000000000001".
 		"&merchantTransactionId=transaction_".$trx.		
 		"&customer.email=".$email.
 		"&customer.identificationDocType=IDCARD".		
 		"&customer.identificationDocId=".$cedula.
 		"&customer.phone=".$telefono.
-		"&billing.street1=".$direccion_cliente.
-		"&billing.country=".$pais_cliente.
-		"&shipping.street1=".$direccion_entrega.
-		"&shipping.country=".$pais_entrega.
+		"&billing.street1=".$direccionCliente.
+		"&billing.country=".$paisCliente.
+		"&shipping.street1=".$direccionEntrega.
+		"&shipping.country=".$paisEntrega.
 		/*"&recurringType=INITIAL".*/
 		"&risk.parameters[USER_DATA2]=DATAFAST".
 		"&customParameters[SHOPPER_VERSIONDF]=2".
@@ -130,7 +130,7 @@ $total = $totalBaseIva + $iva + $totalBase0; //Monto total de la transaccion
 $total = number_format((float)$total, 2, '.', '');
 
 
-$responseData = request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega);
+$responseData = request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segundoNombre, $apellido,$cedula, $trx, $ipAddress, $finger,$merchterm, $telefono, $direccionCliente, $paisCliente, $direccionEntrega, $paisEntrega);
 $json = json_decode($responseData, true);
 
 ?>
