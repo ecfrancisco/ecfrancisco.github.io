@@ -51,7 +51,7 @@ $_SESSION['merchterm'] = $merchterm;
 
 
 
-function request($items, $total, $iva, $totalBase0, $email, $primer_nombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
+function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega) {
 	$finger = urlencode($finger);
 	$i = 0;
 	$url = "https://test.oppwa.com/v1/checkouts";
@@ -65,7 +65,7 @@ function request($items, $total, $iva, $totalBase0, $email, $primer_nombre, $seg
 		"&amount=".$total.
 		"&currency=USD".
 		"&paymentType=DB".
-		"&customer.givenName=".$primer_nombre.
+		"&customer.givenName=".$primerNombre.
 		"&customer.middleName=".$segundo_nombre.
 		"&customer.surname=".$apellido.
 		"&customer.ip=".$ip_address.
@@ -130,7 +130,7 @@ $total = $totalBaseIva + $iva + $totalBase0; //Monto total de la transaccion
 $total = number_format((float)$total, 2, '.', '');
 
 
-$responseData = request($items, $total, $iva, $totalBase0, $email, $primer_nombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega);
+$responseData = request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segundo_nombre, $apellido,$cedula, $trx, $ip_address, $finger,$merchterm, $telefono, $direccion_cliente, $pais_cliente, $direccion_entrega, $pais_entrega);
 $json = json_decode($responseData, true);
 
 ?>
