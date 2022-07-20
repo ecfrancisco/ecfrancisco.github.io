@@ -53,7 +53,7 @@ $_SESSION['merchterm'] = $merchterm;
 
 function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segundoNombre, $apellido,$cedula, $trx, $ipAddress, $finger,$merchterm, $telefono, $direccionCliente, $paisCliente, $direccionEntrega, $paisEntrega) {
 	$finger = urlencode($finger);
-	$i = 0;
+	$cont = 0;
 	$url = "https://test.oppwa.com/v1/checkouts";
 	$iva 			=  str_replace('.', '', $iva); 
 	$totaTarifa12 	=  str_replace('.', '', $totaTarifa12); 
@@ -88,11 +88,11 @@ function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segu
 	
 	foreach ($items["cart"] as $c) {
 		
-		$data.= $itemCart.$i."].name=".$c["product_name"];
-		$data.= $itemCart.$i."].description="."Descripcion: ".$c["product_name"];
-		$data.= $itemCart.$i."].price=".$c["product_price"];
-		$data.= $itemCart.$i."].quantity=".$c["q"];		
-		$i++;
+		$data.= $itemCart.$cont."].name=".$c["product_name"];
+		$data.= $itemCart.$cont."].description="."Descripcion: ".$c["product_name"];
+		$data.= $itemCart.$cont."].price=".$c["product_price"];
+		$data.= $itemCart.$cont."].quantity=".$c["q"];		
+		$cont++;
 	}
 	
 	$data .="&testMode=EXTERNAL";	
