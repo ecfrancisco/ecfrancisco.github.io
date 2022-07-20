@@ -96,19 +96,19 @@ function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segu
 	}
 	
 	$data .="&testMode=EXTERNAL";	
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+	$cha = curl_init();
+	curl_setopt($cha, CURLOPT_URL, $url);
+	curl_setopt($cha, CURLOPT_HTTPHEADER, array(
 		'Authorization:Bearer '.$_SESSION['autorizador']));
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);// this should be set to true in production
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$responseData = curl_exec($ch);
-	if(curl_errno($ch)) {
-		return curl_error($ch);
+	curl_setopt($cha, CURLOPT_POST, 1);
+	curl_setopt($cha, CURLOPT_POSTFIELDS, $data);
+	curl_setopt($cha, CURLOPT_SSL_VERIFYPEER, true);// this should be set to true in production
+	curl_setopt($cha, CURLOPT_RETURNTRANSFER, true);
+	$responseData = curl_exec($cha);
+	if(curl_errno($cha)) {
+		return curl_error($cha);
 	}
-	curl_close($ch);
+	curl_close($cha);
 	return $responseData;
 }
 
