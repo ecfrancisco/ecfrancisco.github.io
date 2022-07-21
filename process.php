@@ -33,7 +33,7 @@ $terminalId=$tid;//BP para OTT
 
 
 
-$_SESSION['merchterm'] = $merchterm;
+$merch = $_SESSION['merchterm'] = $merchterm;
 
 
 /*
