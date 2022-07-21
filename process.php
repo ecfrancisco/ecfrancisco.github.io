@@ -39,11 +39,11 @@ $_SESSION['merchterm'] = $merchterm;
 /*
 **Low Risk - DATAFAST*/
 /*if($modalidad=='1'){
-	$_SESSION['entityId'] = "8a8294185a65bf5e015a6c8b89a10d8d";
-	$_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhiMmY2OTBkOGJ8UmtqcHlOTkU4cw==";
+	$entity1 = $_SESSION['entityId'] = "8a8294185a65bf5e015a6c8b89a10d8d";
+	$aut1 = $_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhiMmY2OTBkOGJ8UmtqcHlOTkU4cw==";
 }else{*/
-	$_SESSION['entityId'] = "8a8294175f113aad015f11652f2200a5";
-	$_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhjNzI4YzBkOTV8YmZxR3F3UTMyWA==";
+	$entity2 = $_SESSION['entityId'] = "8a8294175f113aad015f11652f2200a5";
+	$aut2 = $_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhjNzI4YzBkOTV8YmZxR3F3UTMyWA==";
 
 
 
