@@ -39,11 +39,11 @@ $merch = $_SESSION['merchterm'] = $merchterm;
 /*
 **Low Risk - DATAFAST*/
 /*if($modalidad=='1'){
-	$entity1 = $_SESSION['entityId'] = "8a8294185a65bf5e015a6c8b89a10d8d";
-	$aut1 = $_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhiMmY2OTBkOGJ8UmtqcHlOTkU4cw==";
+	$entity = $_SESSION['entityId'] = "8a8294185a65bf5e015a6c8b89a10d8d";
+	$aut = $_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhiMmY2OTBkOGJ8UmtqcHlOTkU4cw==";
 }else{*/
-	$entity2 = $_SESSION['entityId'] = "8a8294175f113aad015f11652f2200a5";
-	$aut2 = $_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhjNzI4YzBkOTV8YmZxR3F3UTMyWA==";
+	$entity = $_SESSION['entityId'] = "8a8294175f113aad015f11652f2200a5";
+	$aut = $_SESSION['autorizador'] =  "OGE4Mjk0MTg1YTY1YmY1ZTAxNWE2YzhjNzI4YzBkOTV8YmZxR3F3UTMyWA==";
 
 
 
@@ -61,7 +61,7 @@ function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segu
 	$valueIva 		= str_pad($iva, 12, '0', STR_PAD_LEFT);
 	$valueTotalIva 	= str_pad($totaTarifa12, 12, '0', STR_PAD_LEFT);
 	$valueTotalBase0= str_pad($totalBase0, 12, '0', STR_PAD_LEFT);	
-	$data = "entityId=".$_SESSION['entityId'].
+	$data = "entityId=".$entity.
 		"&amount=".$total.
 		"&currency=USD".
 		"&paymentType=DB".
@@ -99,7 +99,7 @@ function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segu
 	$cha = curl_init();
 	curl_setopt($cha, CURLOPT_URL, $url);
 	curl_setopt($cha, CURLOPT_HTTPHEADER, array(
-		'Authorization:Bearer '.$_SESSION['autorizador']));
+		'Authorization:Bearer '.$aut));
 	curl_setopt($cha, CURLOPT_POST, 1);
 	curl_setopt($cha, CURLOPT_POSTFIELDS, $data);
 	curl_setopt($cha, CURLOPT_SSL_VERIFYPEER, true);// this should be set to true in production
