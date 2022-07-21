@@ -10,6 +10,8 @@ $vacio = true;
 $mid = "";
 $tid = "";
 $linea = "";
+$entity = "";
+$aut = "";
 
 if (!file_exists($nombre_fichero)) {
     $existe=false;
