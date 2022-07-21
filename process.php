@@ -63,7 +63,7 @@ function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segu
 	$valueIva 		= str_pad($iva, 12, '0', STR_PAD_LEFT);
 	$valueTotalIva 	= str_pad($totaTarifa12, 12, '0', STR_PAD_LEFT);
 	$valueTotalBase0= str_pad($totalBase0, 12, '0', STR_PAD_LEFT);	
-	$data = "entityId=".$entity.
+	$data = "entityId=".$_SESSION['entityId'].
 		"&amount=".$total.
 		"&currency=USD".
 		"&paymentType=DB".
@@ -101,7 +101,7 @@ function request($items, $total, $iva, $totalBase0, $email, $primerNombre, $segu
 	$cha = curl_init();
 	curl_setopt($cha, CURLOPT_URL, $url);
 	curl_setopt($cha, CURLOPT_HTTPHEADER, array(
-		'Authorization:Bearer '.$aut));
+		'Authorization:Bearer '.$_SESSION['autorizador']));
 	curl_setopt($cha, CURLOPT_POST, 1);
 	curl_setopt($cha, CURLOPT_POSTFIELDS, $data);
 	curl_setopt($cha, CURLOPT_SSL_VERIFYPEER, true);// this should be set to true in production
